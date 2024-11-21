@@ -1,0 +1,8 @@
+prefix=/root/raptors_test/devel
+
+Name: raptors_task
+Description: Description of raptors_task
+Version: 0.0.0
+Cflags: -I/root/raptors_test/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

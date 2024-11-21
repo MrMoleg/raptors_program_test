@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /root/raptors_test/devel/setup.sh
