@@ -453,6 +453,21 @@ raptors_task_genpy/fast:
 .PHONY : raptors_task_genpy/fast
 
 # Convenience name for target.
+raptors_task/CMakeFiles/person_data.dir/rule:
+	cd /root/raptors_test/build && $(MAKE) -f CMakeFiles/Makefile2 raptors_task/CMakeFiles/person_data.dir/rule
+.PHONY : raptors_task/CMakeFiles/person_data.dir/rule
+
+# Convenience name for target.
+person_data: raptors_task/CMakeFiles/person_data.dir/rule
+
+.PHONY : person_data
+
+# fast build rule for target.
+person_data/fast:
+	cd /root/raptors_test/build && $(MAKE) -f raptors_task/CMakeFiles/person_data.dir/build.make raptors_task/CMakeFiles/person_data.dir/build
+.PHONY : person_data/fast
+
+# Convenience name for target.
 raptors_task/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
 	cd /root/raptors_test/build && $(MAKE) -f CMakeFiles/Makefile2 raptors_task/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 .PHONY : raptors_task/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
@@ -617,6 +632,33 @@ raptors_task_generate_messages_py/fast:
 	cd /root/raptors_test/build && $(MAKE) -f raptors_task/CMakeFiles/raptors_task_generate_messages_py.dir/build.make raptors_task/CMakeFiles/raptors_task_generate_messages_py.dir/build
 .PHONY : raptors_task_generate_messages_py/fast
 
+src/person_data.o: src/person_data.cpp.o
+
+.PHONY : src/person_data.o
+
+# target to build an object file
+src/person_data.cpp.o:
+	cd /root/raptors_test/build && $(MAKE) -f raptors_task/CMakeFiles/person_data.dir/build.make raptors_task/CMakeFiles/person_data.dir/src/person_data.cpp.o
+.PHONY : src/person_data.cpp.o
+
+src/person_data.i: src/person_data.cpp.i
+
+.PHONY : src/person_data.i
+
+# target to preprocess a source file
+src/person_data.cpp.i:
+	cd /root/raptors_test/build && $(MAKE) -f raptors_task/CMakeFiles/person_data.dir/build.make raptors_task/CMakeFiles/person_data.dir/src/person_data.cpp.i
+.PHONY : src/person_data.cpp.i
+
+src/person_data.s: src/person_data.cpp.s
+
+.PHONY : src/person_data.s
+
+# target to generate assembly for a file
+src/person_data.cpp.s:
+	cd /root/raptors_test/build && $(MAKE) -f raptors_task/CMakeFiles/person_data.dir/build.make raptors_task/CMakeFiles/person_data.dir/src/person_data.cpp.s
+.PHONY : src/person_data.cpp.s
+
 src/task1_recive.o: src/task1_recive.cpp.o
 
 .PHONY : src/task1_recive.o
@@ -702,6 +744,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... raptors_task_generate_messages_cpp"
 	@echo "... raptors_task_genpy"
+	@echo "... person_data"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... install"
@@ -714,6 +757,9 @@ help:
 	@echo "... raptors_task_generate_messages_nodejs"
 	@echo "... raptors_task_gencpp"
 	@echo "... raptors_task_generate_messages_py"
+	@echo "... src/person_data.o"
+	@echo "... src/person_data.i"
+	@echo "... src/person_data.s"
 	@echo "... src/task1_recive.o"
 	@echo "... src/task1_recive.i"
 	@echo "... src/task1_recive.s"

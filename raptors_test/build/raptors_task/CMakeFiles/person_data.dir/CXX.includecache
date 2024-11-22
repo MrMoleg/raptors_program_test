@@ -686,7 +686,7 @@ vector
 time.h
 -
 
-/root/raptors_test/src/raptors_task/src/task1_recive.cpp
+/root/raptors_test/src/raptors_task/src/person_data.cpp
 ros/ros.h
 /root/raptors_test/src/raptors_task/src/ros/ros.h
 std_msgs/String.h

@@ -693,4 +693,12 @@ std_msgs/String.h
 /root/raptors_test/src/raptors_task/src/std_msgs/String.h
 sstream
 -
+sstream
+-
+string
+-
+iostream
+-
+map
+-
 

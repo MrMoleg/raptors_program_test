@@ -5,60 +5,94 @@
 #include <string>
 #include <iostream>
 #include <map> 
-ros::Publisher processed_data;
-std::list<std::string> data_list;
-std::list<std::string> modify_data(std::string new_data)
-{
-   std::string data = new_data; // Access the received string
-    std::istringstream stream(data);
-    std::string line;
-}
 
-void chatterCallback(const std_msgs::String::ConstPtr& msg)
+
+
+std::list<std::string> data_list;
+ros::Publisher publicate; 
+std::string modify_data(std::string new_data)
 {
-  //ROS_INFO("data obtained: [%s]", msg->data.c_str());
+ // Access the received string
+    std::istringstream stream(new_data);
+    std::string line;
+
+    std::map<std::string, std::string> parsed_data;
+    while(std::getline(stream, line))
+    {
+      size_t separator_pos = line.find(": ");
+      if(separator_pos != std::string::npos){
+        std::string key = line.substr(0, separator_pos);
+        std::string value = line.substr(separator_pos +2);
+        parsed_data[key] = value;
+
+      }
+    }
+    std::string begin_line = "[{  ";
+    std::string end_line = " }]";
+    bool first = true;
+    std::ostringstream out_data;
+    out_data<< begin_line;
+    for (const auto& [key, value] : parsed_data) {
+       if(!first){
+        out_data<< ", " << "\n";
+       }
+        out_data << "\"" + key + "\"" + ": "+ "\"" + value + "\"";
+        first = false;
+       }
+    
+    out_data << end_line;
+    std::string formatted_string = out_data.str();
+
+    return formatted_string;
+ 
+    }
+
+
+void subscribeCallback(const std_msgs::String::ConstPtr& msg)
+{
+  ROS_INFO("data obtained [%s]");
   //std::string processed_data;
   //processed_data = msg->data;
+  data_list.push_back(modify_data(msg->data));
 
+  std_msgs::String pub_msg;
+
+  std::ostringstream stream_to_pub;
+  for (const auto& item: data_list)
+  {
+    stream_to_pub << item<< "\n";
+  }
+
+  pub_msg.data = stream_to_pub.str();
+ 
+  publicate.publish(pub_msg);
+  
 
 }
+
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "task1_recive");
-
+  ros::init(argc, argv, "person_data");
   
-  ros::NodeHandle n;
 
-  /**
-   * The subscribe() call is how you tell ROS that you want to receive messages
-   * on a given topic.  This invokes a call to the ROS
-   * master node, which keeps a registry of who is publishing and who
-   * is subscribing.  Messages are passed to a callback function, here
-   * called chatterCallback.  subscribe() returns a Subscriber object that you
-   * must hold on to until you want to unsubscribe.  When all copies of the Subscriber
-   * object go out of scope, this callback will automatically be unsubscribed from
-   * this topic.
-   *
-   * The second parameter to the subscribe() function is the size of the message
-   * queue.  If messages are arriving faster than they are being processed, this
-   * is the number of messages that will be buffered up before beginning to throw
-   * away the oldest ones.
-   */
-// %Tag(SUBSCRIBER)%
-  ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
-// %EndTag(SUBSCRIBER)%
+  ros::NodeHandle pub;
+  publicate = pub.advertise<std_msgs::String>("Raptors/Serialized", 100);
+  ros::NodeHandle sub;
+  ros::Subscriber subscribe = sub.subscribe("Raptors/Person", 100, subscribeCallback);
+  ros::Rate loop_rate(1);
+  while(ros::ok()){
+  
+    
+    ros::spin();
+    loop_rate.sleep();
+  }
+  
 
-  /**
-   * ros::spin() will enter a loop, pumping callbacks.  With this version, all
-   * callbacks will be called from within this thread (the main one).  ros::spin()
-   * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
-   */
-// %Tag(SPIN)%
-  ros::spin();
-// %EndTag(SPIN)%
 
   return 0;
 }
-// %EndTag(FULLTEXT)%
+
+
+
 

@@ -151,6 +151,13 @@ add_executable(task1_recive src/task1_recive.cpp)
 target_link_libraries(task1_recive ${catkin_LIBRARIES})
 add_dependencies(task1_recive raptors_task_generate_messages_cpp)
 
+add_executable(person_data src/person_data.cpp)
+
+target_link_libraries(person_data ${catkin_LIBRARIES})
+add_dependencies(person_data raptors_task_generate_messages_cpp)
+
+
+
 
 #   ${catkin_LIBRARIES}
 # )

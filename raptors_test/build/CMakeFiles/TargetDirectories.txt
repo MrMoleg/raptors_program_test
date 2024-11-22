@@ -60,6 +60,7 @@
 /root/raptors_test/build/raptors_task/CMakeFiles/std_msgs_generate_messages_cpp.dir
 /root/raptors_test/build/raptors_task/CMakeFiles/raptors_task_generate_messages_cpp.dir
 /root/raptors_test/build/raptors_task/CMakeFiles/raptors_task_genpy.dir
+/root/raptors_test/build/raptors_task/CMakeFiles/person_data.dir
 /root/raptors_test/build/raptors_task/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 /root/raptors_test/build/raptors_task/CMakeFiles/std_msgs_generate_messages_py.dir
 /root/raptors_test/build/raptors_task/CMakeFiles/install.dir

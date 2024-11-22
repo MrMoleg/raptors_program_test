@@ -532,6 +532,19 @@ raptors_task_genpy/fast:
 .PHONY : raptors_task_genpy/fast
 
 #=============================================================================
+# Target rules for targets named person_data
+
+# Build rule for target.
+person_data: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 person_data
+.PHONY : person_data
+
+# fast build rule for target.
+person_data/fast:
+	$(MAKE) -f raptors_task/CMakeFiles/person_data.dir/build.make raptors_task/CMakeFiles/person_data.dir/build
+.PHONY : person_data/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -715,6 +728,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... raptors_task_generate_messages_cpp"
 	@echo "... raptors_task_genpy"
+	@echo "... person_data"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... task1_send"
