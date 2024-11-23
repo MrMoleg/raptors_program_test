@@ -11,7 +11,7 @@ void chatterCallback(const std_msgs::String::ConstPtr& msg)
   
 
 }
-// %EndTag(CALLBACK)%
+
 
 int main(int argc, char **argv)
 {
@@ -24,10 +24,8 @@ int main(int argc, char **argv)
 
   ros::Subscriber sub = n.subscribe("Raptors/Serialized", 1000, chatterCallback);
 
-// %Tag(SPIN)%
+
   ros::spin();
-// %EndTag(SPIN)%
 
   return 0;
 }
-// %EndTag(FULLTEXT)%
