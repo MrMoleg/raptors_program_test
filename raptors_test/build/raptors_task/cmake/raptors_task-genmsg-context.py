@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/root/raptors_test/src/raptors_task/msg/Num.msg"
+messages_str = "/root/raptors_test/src/raptors_task/msg/Num.msg;/root/raptors_test/src/raptors_task/msg/Person.msg"
 services_str = "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv"
 pkg_name = "raptors_task"
 dependencies_str = "std_msgs"

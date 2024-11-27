@@ -686,6 +686,22 @@ vector
 time.h
 -
 
+/root/raptors_test/devel/include/raptors_task/Person.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /root/raptors_test/src/raptors_task/src/task1_recive.cpp
 ros/ros.h
 /root/raptors_test/src/raptors_task/src/ros/ros.h
@@ -698,5 +714,7 @@ string
 iostream
 -
 map
+-
+raptors_task/Person.h
 -
 

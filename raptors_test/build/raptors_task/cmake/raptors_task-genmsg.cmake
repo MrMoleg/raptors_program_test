@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "raptors_task: 1 messages, 1 services")
+message(STATUS "raptors_task: 2 messages, 1 services")
 
 set(MSG_I_FLAGS "-Iraptors_task:/root/raptors_test/src/raptors_task/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_raptors_task_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "raptors_task" "/root/raptors_test/src/raptors_task/msg/Num.msg" ""
 )
 
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
+add_custom_target(_raptors_task_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "raptors_task" "/root/raptors_test/src/raptors_task/msg/Person.msg" ""
+)
+
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_custom_target(_raptors_task_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "raptors_task" "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" ""
@@ -35,6 +40,12 @@ add_custom_target(_raptors_task_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(raptors_task
   "/root/raptors_test/src/raptors_task/msg/Num.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/raptors_task
+)
+_generate_msg_cpp(raptors_task
+  "/root/raptors_test/src/raptors_task/msg/Person.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/raptors_task
@@ -62,6 +73,8 @@ add_dependencies(raptors_task_generate_messages raptors_task_generate_messages_c
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Num.msg" NAME_WE)
 add_dependencies(raptors_task_generate_messages_cpp _raptors_task_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
+add_dependencies(raptors_task_generate_messages_cpp _raptors_task_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_dependencies(raptors_task_generate_messages_cpp _raptors_task_generate_messages_check_deps_${_filename})
 
@@ -76,6 +89,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS raptors_task_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(raptors_task
   "/root/raptors_test/src/raptors_task/msg/Num.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/raptors_task
+)
+_generate_msg_eus(raptors_task
+  "/root/raptors_test/src/raptors_task/msg/Person.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/raptors_task
@@ -103,6 +122,8 @@ add_dependencies(raptors_task_generate_messages raptors_task_generate_messages_e
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Num.msg" NAME_WE)
 add_dependencies(raptors_task_generate_messages_eus _raptors_task_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
+add_dependencies(raptors_task_generate_messages_eus _raptors_task_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_dependencies(raptors_task_generate_messages_eus _raptors_task_generate_messages_check_deps_${_filename})
 
@@ -117,6 +138,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS raptors_task_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(raptors_task
   "/root/raptors_test/src/raptors_task/msg/Num.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/raptors_task
+)
+_generate_msg_lisp(raptors_task
+  "/root/raptors_test/src/raptors_task/msg/Person.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/raptors_task
@@ -144,6 +171,8 @@ add_dependencies(raptors_task_generate_messages raptors_task_generate_messages_l
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Num.msg" NAME_WE)
 add_dependencies(raptors_task_generate_messages_lisp _raptors_task_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
+add_dependencies(raptors_task_generate_messages_lisp _raptors_task_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_dependencies(raptors_task_generate_messages_lisp _raptors_task_generate_messages_check_deps_${_filename})
 
@@ -158,6 +187,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS raptors_task_generate_messages_lisp
 ### Generating Messages
 _generate_msg_nodejs(raptors_task
   "/root/raptors_test/src/raptors_task/msg/Num.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/raptors_task
+)
+_generate_msg_nodejs(raptors_task
+  "/root/raptors_test/src/raptors_task/msg/Person.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/raptors_task
@@ -185,6 +220,8 @@ add_dependencies(raptors_task_generate_messages raptors_task_generate_messages_n
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Num.msg" NAME_WE)
 add_dependencies(raptors_task_generate_messages_nodejs _raptors_task_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
+add_dependencies(raptors_task_generate_messages_nodejs _raptors_task_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_dependencies(raptors_task_generate_messages_nodejs _raptors_task_generate_messages_check_deps_${_filename})
 
@@ -199,6 +236,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS raptors_task_generate_messages_node
 ### Generating Messages
 _generate_msg_py(raptors_task
   "/root/raptors_test/src/raptors_task/msg/Num.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/raptors_task
+)
+_generate_msg_py(raptors_task
+  "/root/raptors_test/src/raptors_task/msg/Person.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/raptors_task
@@ -225,6 +268,8 @@ add_dependencies(raptors_task_generate_messages raptors_task_generate_messages_p
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Num.msg" NAME_WE)
+add_dependencies(raptors_task_generate_messages_py _raptors_task_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/root/raptors_test/src/raptors_task/msg/Person.msg" NAME_WE)
 add_dependencies(raptors_task_generate_messages_py _raptors_task_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/root/raptors_test/src/raptors_task/srv/AddTwoInts.srv" NAME_WE)
 add_dependencies(raptors_task_generate_messages_py _raptors_task_generate_messages_check_deps_${_filename})

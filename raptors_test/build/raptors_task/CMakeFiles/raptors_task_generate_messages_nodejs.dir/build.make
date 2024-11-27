@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /root/raptors_test/build
 include raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs.dir/progress.make
 
 raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Num.js
+raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Person.js
 raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/srv/AddTwoInts.js
 
 
@@ -62,13 +63,19 @@ raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs: /root/raptors_tes
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from raptors_task/Num.msg"
 	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /root/raptors_test/src/raptors_task/msg/Num.msg -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg
 
+/root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Person.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Person.js: /root/raptors_test/src/raptors_task/msg/Person.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from raptors_task/Person.msg"
+	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /root/raptors_test/src/raptors_task/msg/Person.msg -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg
+
 /root/raptors_test/devel/share/gennodejs/ros/raptors_task/srv/AddTwoInts.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /root/raptors_test/devel/share/gennodejs/ros/raptors_task/srv/AddTwoInts.js: /root/raptors_test/src/raptors_task/srv/AddTwoInts.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from raptors_task/AddTwoInts.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from raptors_task/AddTwoInts.srv"
 	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /root/raptors_test/src/raptors_task/srv/AddTwoInts.srv -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/gennodejs/ros/raptors_task/srv
 
 raptors_task_generate_messages_nodejs: raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs
 raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Num.js
+raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/msg/Person.js
 raptors_task_generate_messages_nodejs: /root/raptors_test/devel/share/gennodejs/ros/raptors_task/srv/AddTwoInts.js
 raptors_task_generate_messages_nodejs: raptors_task/CMakeFiles/raptors_task_generate_messages_nodejs.dir/build.make
 

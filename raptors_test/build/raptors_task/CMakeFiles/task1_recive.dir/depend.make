@@ -60,5 +60,6 @@ raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /opt/ros/noetic
 raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /opt/ros/noetic/include/std_msgs/String.h
 raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
+raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /root/raptors_test/devel/include/raptors_task/Person.h
 raptors_task/CMakeFiles/task1_recive.dir/src/task1_recive.cpp.o: /root/raptors_test/src/raptors_task/src/task1_recive.cpp
 

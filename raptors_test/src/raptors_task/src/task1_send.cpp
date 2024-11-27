@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <raptors_task/Person.h>
 
 
 int main(int argc, char **argv)
@@ -15,86 +16,41 @@ int main(int argc, char **argv)
 
   ros::NodeHandle n;
 
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("Raptors/Person", 1000);
+  ros::Publisher chatter_pub = n.advertise<raptors_task::Person>("Raptors/Person1", 1000);
 
   ros::Rate loop_rate(1);
 
-  std::list<std::string> data_to_send1 = {"IndexNumber: 31415",
-  "Name: Ada",
-  "Surname: Lovelace",
-  "Section: Programmers",
-  "YearOfBirth: 1815"};
 
-  std::list<std::string> data_to_send2 = {"IndexNumber: 1618",
-    "Name: Jan",
-    "Surname: Kowalski",
-    "Section: Marketing",
-    "YearOfBirth: 2004"
-};
-
-std::list<std::string> data_to_send3 = {"IndexNumber: 1618",
-    "Name: Jan",
-    "Surname: Kowalski",
-    "Section: Marketing",
-};
-
-std::list<std::string> data_to_send4 = {"FFFggg: 1618", 
-    "RORRORORORO",
-    "BIBO"
-};
-
-
+  bool message_to_send = true;
   int count = 0;
   std::stringstream ss;
-  std_msgs::String msg;
-  while (ros::ok())
+  raptors_task::Person msg1;
+        msg1.IndexNumber = 31415;
+        msg1.Name = "Ada";
+        msg1.Surname = "Lovelace";
+        msg1.Section = "Programmers";
+        msg1.YearOfBirth = 1815;
+
+    raptors_task::Person msg2;
+        msg2.IndexNumber = 1618;
+        msg2.Name = "Jan";
+        msg2.Surname = "Kowalski";
+        msg2.Section = "Marketing";
+        msg2.YearOfBirth = 2004;
+
+    while (ros::ok())
   {
-    for (const auto &line: data_to_send1){
-    ss<< line << "\n";
-  }
-
-  
-  msg.data = ss.str();
-
-
-
-    ROS_INFO("%s", msg.data.c_str());
-
-
-    chatter_pub.publish(msg);
-    ss.str(std::string());
-////////////////////
-    for (const auto &line: data_to_send2){
-    ss<< line << "\n";
-  }
-
-  msg.data = ss.str();
-
-    ROS_INFO("%s", msg.data.c_str());
-    chatter_pub.publish(msg);
-    ss.str(std::string());
-////////////////////
-    for (const auto &line: data_to_send3){
-    ss<< line << "\n";
-  }
-  msg.data = ss.str();
-
-    ROS_INFO("%s", msg.data.c_str());
-    chatter_pub.publish(msg);
-    ss.str(std::string());
-////////////////
-for (const auto &line: data_to_send4){
-    ss<< line << "\n";
-  }
-
-  msg.data = ss.str();
-
-    ROS_INFO("%s", msg.data.c_str());
-    chatter_pub.publish(msg);
-    ss.str(std::string());
+    
+    if (message_to_send == true){
+      chatter_pub.publish(msg1);
+    }else{
+      chatter_pub.publish(msg2);
+    }
+    
+    message_to_send = !message_to_send;
+    
 
     ros::spinOnce();
-
     loop_rate.sleep();
 
     ++count;

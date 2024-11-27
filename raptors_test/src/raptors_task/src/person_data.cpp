@@ -6,55 +6,36 @@
 #include <iostream>
 #include <map> 
 #include <regex>
+#include <raptors_task/Person.h>
 
 
-bool check_data (std::map<std::string, std::string> check_key);
+bool check_data (raptors_task::Person check_msg);
 void sort_data(std::list<std::string> data_list);
 std::string extractSurname(const std::string& json_string);
 std::string extractName(const std::string& json_string) ;
 std::list<std::string> data_list;
 ros::Publisher publicate; 
-bool first_data = true;
+
 
 // Recieve msg data, process it and add to the string list
-void modify_data(std::string new_data, std::list<std::string>& data_list)
+int modify_data(const raptors_task::Person& new_data, std::list<std::string>& data_list)
 {
 
-    std::istringstream stream(new_data);
-    std::string line;
 
-    std::map<std::string, std::string> parsed_data;
-    while(std::getline(stream, line))
-    {
-      size_t separator_pos = line.find(": ");
-      if(separator_pos != std::string::npos){
-        std::string key = line.substr(0, separator_pos);
-        std::string value = line.substr(separator_pos +2);
-        parsed_data[key] = value;
-
-      }
-    }
-    if (check_data(parsed_data)){
-      std::string begin_line = "{  ";
-      std::string end_line = " }";
-      bool first = true;
-      std::ostringstream out_data;
-      out_data<< begin_line;
-      for (const auto& [key, value] : parsed_data) {
-        if(!first){
-          out_data<< ", " << "\n";
-        }
-          out_data << "\"" + key + "\"" + ": "+ "\"" + value + "\"";
-          first = false;
-        }
+    if (!check_data(new_data)){
+      return 0;
+    };
+    std::stringstream new_data_stream;
+   
     
-      out_data << end_line;
+    new_data_stream << ", "<<"{ "<< "\"" <<"IndexNumber" <<  "\""<<": " << "\"" << new_data.IndexNumber<< "\""<< ","<< "\n"
+                    << "\"" <<"Name" <<  "\""<<": " << "\"" << new_data.Name<< "\"" << "," << "\n"
+                    << "\"" <<"Surname" <<  "\""<<": " << "\"" << new_data.Surname<< "\"" << ","<< "\n"
+                    << "\"" <<"Sectrion" <<  "\""<<": " << "\"" << new_data.Section<< "\""<< ","<< "\n"
+                    << "\"" <<"YearOfBirth" <<  "\""<<": " << "\"" << new_data.YearOfBirth<< "\""<< " }";
+
       
-      if(!first_data){
-        out_data<< ",";
-      }
-      first_data = false;
-      std::string formatted_string = out_data.str();
+      std::string formatted_string = new_data_stream.str();
       data_list.push_back(formatted_string);
       // Sorting the list
       data_list.sort([](const std::string& a, const std::string& b) {
@@ -67,40 +48,45 @@ void modify_data(std::string new_data, std::list<std::string>& data_list)
         std::string name_b = extractName(b);
         return name_a < name_b; 
     });
-    }else{
-      // LOG Info 
-      ROS_INFO("Data is not correct. Your data: [%s]", new_data.c_str());
+    std::string &first_element = data_list.front();
+    if (first_element.front() == ','){
+        first_element.erase(0, 1);
     }
     
+    return 1;
  
     }
 // check with the key whether the data obtained is suitable
-bool check_data (std::map<std::string, std::string> check_key)
+bool check_data (raptors_task::Person check_msg)
 {
-  int correct_data = 0;
-  int invalid_data = 0;
-  for(const auto &pair : check_key)
+  
+  if(check_msg.IndexNumber < 0 or check_msg.IndexNumber > 99999)
   {
-    if (pair.first == "IndexNumber" ||
-        pair.first == "Name" ||
-        pair.first == "Surname" ||
-        pair.first == "Section" ||
-        pair.first == "YearOfBirth"
-        ){
-      correct_data++;
-    }else
-     {
-      invalid_data++;
-    }
+    ROS_WARN("The Index number is not correct \n");
+    return 0;
   }
-  if (correct_data == 5 && invalid_data ==0){
-    return true;
-  }else{
-    return false;
+  if (check_msg.Name.empty()){
+    ROS_WARN("The name should be included\n");
+    return 0;
+  }
+  if (check_msg.Surname.empty()){
+    ROS_WARN("The name should be included\n");
+    return 0;
+  }
+  if (check_msg.Section.empty()){
+    ROS_WARN("The Section should be included\n");
+    return 0;
+  }
+  if (check_msg.YearOfBirth > 2008 or check_msg.YearOfBirth< 1800){
+    ROS_WARN("The year of birth is not correct\n");
+    return 0;
+  }
+  
+  return 1;
   }
  
  
-}
+
 // Extracts Surname from the JSON-like string 
 std::string extractSurname(const std::string& json_string) {
     std::regex surname_regex("\"Surname\":\\s*\"([^\"]+)\"");
@@ -120,14 +106,12 @@ std::string extractName(const std::string& json_string) {
     return ""; // Return an empty string if no match is found
 }
 
-void subscribeCallback(const std_msgs::String::ConstPtr& msg)
+void subscribeCallback(const raptors_task::Person::ConstPtr& msg)
 {
   ROS_INFO("%s", "data obtained");
-  //std::string processed_data;
-  //processed_data = msg->data;
-  modify_data(msg->data, data_list);
-
-  std_msgs::String pub_msg;
+ 
+  if(modify_data(*msg, data_list)){
+    std_msgs::String pub_msg;
 
   std::ostringstream stream_to_pub;
   for (const auto& item: data_list)
@@ -138,6 +122,8 @@ void subscribeCallback(const std_msgs::String::ConstPtr& msg)
   pub_msg.data = stream_to_pub.str();
  
   publicate.publish(pub_msg);
+  }
+  
   
 
 }

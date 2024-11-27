@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <raptors_task/Person.h>
 
 void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {
@@ -22,7 +23,7 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
 
-  ros::Subscriber sub = n.subscribe("Raptors/Serialized", 1000, chatterCallback);
+  ros::Subscriber sub = n.subscribe("Raptors/Serialized1", 1000, chatterCallback);
 
 
   ros::spin();

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /root/raptors_test/build
 include raptors_task/CMakeFiles/raptors_task_generate_messages_lisp.dir/progress.make
 
 raptors_task/CMakeFiles/raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Num.lisp
+raptors_task/CMakeFiles/raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Person.lisp
 raptors_task/CMakeFiles/raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/srv/AddTwoInts.lisp
 
 
@@ -62,13 +63,19 @@ raptors_task/CMakeFiles/raptors_task_generate_messages_lisp: /root/raptors_test/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from raptors_task/Num.msg"
 	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/raptors_test/src/raptors_task/msg/Num.msg -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg
 
+/root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Person.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Person.lisp: /root/raptors_test/src/raptors_task/msg/Person.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from raptors_task/Person.msg"
+	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/raptors_test/src/raptors_task/msg/Person.msg -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg
+
 /root/raptors_test/devel/share/common-lisp/ros/raptors_task/srv/AddTwoInts.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /root/raptors_test/devel/share/common-lisp/ros/raptors_task/srv/AddTwoInts.lisp: /root/raptors_test/src/raptors_task/srv/AddTwoInts.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from raptors_task/AddTwoInts.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/raptors_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from raptors_task/AddTwoInts.srv"
 	cd /root/raptors_test/build/raptors_task && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /root/raptors_test/src/raptors_task/srv/AddTwoInts.srv -Iraptors_task:/root/raptors_test/src/raptors_task/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p raptors_task -o /root/raptors_test/devel/share/common-lisp/ros/raptors_task/srv
 
 raptors_task_generate_messages_lisp: raptors_task/CMakeFiles/raptors_task_generate_messages_lisp
 raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Num.lisp
+raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/msg/Person.lisp
 raptors_task_generate_messages_lisp: /root/raptors_test/devel/share/common-lisp/ros/raptors_task/srv/AddTwoInts.lisp
 raptors_task_generate_messages_lisp: raptors_task/CMakeFiles/raptors_task_generate_messages_lisp.dir/build.make
 

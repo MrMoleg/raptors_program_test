@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/root/raptors_test/devel/share/roseus/ros/raptors_task/manifest.l"
   "/root/raptors_test/devel/share/roseus/ros/raptors_task/msg/Num.l"
+  "/root/raptors_test/devel/share/roseus/ros/raptors_task/msg/Person.l"
   "/root/raptors_test/devel/share/roseus/ros/raptors_task/srv/AddTwoInts.l"
   "CMakeFiles/raptors_task_generate_messages_eus"
 )

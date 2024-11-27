@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/root/raptors_test/devel/lib/python3/dist-packages/raptors_task/msg/_Num.py"
+  "/root/raptors_test/devel/lib/python3/dist-packages/raptors_task/msg/_Person.py"
   "/root/raptors_test/devel/lib/python3/dist-packages/raptors_task/msg/__init__.py"
   "/root/raptors_test/devel/lib/python3/dist-packages/raptors_task/srv/_AddTwoInts.py"
   "/root/raptors_test/devel/lib/python3/dist-packages/raptors_task/srv/__init__.py"
