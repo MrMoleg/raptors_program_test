@@ -55,5 +55,6 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/root/raptors_test/src/raptors_task"
 }

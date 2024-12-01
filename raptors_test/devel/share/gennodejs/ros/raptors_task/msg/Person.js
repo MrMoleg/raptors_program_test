@@ -61,7 +61,7 @@ class Person {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Person
     // Serialize message field [IndexNumber]
-    bufferOffset = _serializer.int64(obj.IndexNumber, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.IndexNumber, buffer, bufferOffset);
     // Serialize message field [Name]
     bufferOffset = _serializer.string(obj.Name, buffer, bufferOffset);
     // Serialize message field [Surname]
@@ -69,7 +69,7 @@ class Person {
     // Serialize message field [Section]
     bufferOffset = _serializer.string(obj.Section, buffer, bufferOffset);
     // Serialize message field [YearOfBirth]
-    bufferOffset = _serializer.int64(obj.YearOfBirth, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.YearOfBirth, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -78,7 +78,7 @@ class Person {
     let len;
     let data = new Person(null);
     // Deserialize message field [IndexNumber]
-    data.IndexNumber = _deserializer.int64(buffer, bufferOffset);
+    data.IndexNumber = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [Name]
     data.Name = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [Surname]
@@ -86,7 +86,7 @@ class Person {
     // Deserialize message field [Section]
     data.Section = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [YearOfBirth]
-    data.YearOfBirth = _deserializer.int64(buffer, bufferOffset);
+    data.YearOfBirth = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
@@ -95,7 +95,7 @@ class Person {
     length += _getByteLength(object.Name);
     length += _getByteLength(object.Surname);
     length += _getByteLength(object.Section);
-    return length + 28;
+    return length + 20;
   }
 
   static datatype() {
@@ -105,17 +105,17 @@ class Person {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5bab4e573b68d65c015b7a4a92f95360';
+    return '5c66f7d04e1fe420ad3f0efb223970bc';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int64 IndexNumber
+    int32 IndexNumber
     string Name
     string Surname
     string Section
-    int64 YearOfBirth
+    int32 YearOfBirth
     `;
   }
 

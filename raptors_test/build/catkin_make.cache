@@ -1,2 +1,0 @@
-raptors_task
--DCATKIN_DEVEL_PREFIX=/root/raptors_test/devel -DCMAKE_INSTALL_PREFIX=/root/raptors_test/install -G Unix Makefiles

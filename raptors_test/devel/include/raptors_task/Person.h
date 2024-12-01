@@ -41,7 +41,7 @@ struct Person_
 
 
 
-   typedef int64_t _IndexNumber_type;
+   typedef int32_t _IndexNumber_type;
   _IndexNumber_type IndexNumber;
 
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _Name_type;
@@ -53,7 +53,7 @@ struct Person_
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _Section_type;
   _Section_type Section;
 
-   typedef int64_t _YearOfBirth_type;
+   typedef int32_t _YearOfBirth_type;
   _YearOfBirth_type YearOfBirth;
 
 
@@ -146,12 +146,12 @@ struct MD5Sum< ::raptors_task::Person_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5bab4e573b68d65c015b7a4a92f95360";
+    return "5c66f7d04e1fe420ad3f0efb223970bc";
   }
 
   static const char* value(const ::raptors_task::Person_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5bab4e573b68d65cULL;
-  static const uint64_t static_value2 = 0x015b7a4a92f95360ULL;
+  static const uint64_t static_value1 = 0x5c66f7d04e1fe420ULL;
+  static const uint64_t static_value2 = 0xad3f0efb223970bcULL;
 };
 
 template<class ContainerAllocator>
@@ -170,11 +170,11 @@ struct Definition< ::raptors_task::Person_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64 IndexNumber\n"
+    return "int32 IndexNumber\n"
 "string Name\n"
 "string Surname\n"
 "string Section\n"
-"int64 YearOfBirth\n"
+"int32 YearOfBirth\n"
 ;
   }
 
@@ -217,7 +217,7 @@ struct Printer< ::raptors_task::Person_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::raptors_task::Person_<ContainerAllocator>& v)
   {
     s << indent << "IndexNumber: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.IndexNumber);
+    Printer<int32_t>::stream(s, indent + "  ", v.IndexNumber);
     s << indent << "Name: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.Name);
     s << indent << "Surname: ";
@@ -225,7 +225,7 @@ struct Printer< ::raptors_task::Person_<ContainerAllocator> >
     s << indent << "Section: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.Section);
     s << indent << "YearOfBirth: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.YearOfBirth);
+    Printer<int32_t>::stream(s, indent + "  ", v.YearOfBirth);
   }
 };
 

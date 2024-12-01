@@ -8,16 +8,16 @@ import struct
 
 
 class Person(genpy.Message):
-  _md5sum = "5bab4e573b68d65c015b7a4a92f95360"
+  _md5sum = "5c66f7d04e1fe420ad3f0efb223970bc"
   _type = "raptors_task/Person"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int64 IndexNumber
+  _full_text = """int32 IndexNumber
 string Name
 string Surname
 string Section
-int64 YearOfBirth"""
+int32 YearOfBirth"""
   __slots__ = ['IndexNumber','Name','Surname','Section','YearOfBirth']
-  _slot_types = ['int64','string','string','string','int64']
+  _slot_types = ['int32','string','string','string','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -66,7 +66,7 @@ int64 YearOfBirth"""
     """
     try:
       _x = self.IndexNumber
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
       _x = self.Name
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -86,7 +86,7 @@ int64 YearOfBirth"""
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self.YearOfBirth
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -100,8 +100,8 @@ int64 YearOfBirth"""
     try:
       end = 0
       start = end
-      end += 8
-      (self.IndexNumber,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.IndexNumber,) = _get_struct_i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -130,8 +130,8 @@ int64 YearOfBirth"""
       else:
         self.Section = str[start:end]
       start = end
-      end += 8
-      (self.YearOfBirth,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.YearOfBirth,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -145,7 +145,7 @@ int64 YearOfBirth"""
     """
     try:
       _x = self.IndexNumber
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
       _x = self.Name
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -165,7 +165,7 @@ int64 YearOfBirth"""
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self.YearOfBirth
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -180,8 +180,8 @@ int64 YearOfBirth"""
     try:
       end = 0
       start = end
-      end += 8
-      (self.IndexNumber,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.IndexNumber,) = _get_struct_i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -210,8 +210,8 @@ int64 YearOfBirth"""
       else:
         self.Section = str[start:end]
       start = end
-      end += 8
-      (self.YearOfBirth,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.YearOfBirth,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -220,9 +220,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_q = None
-def _get_struct_q():
-    global _struct_q
-    if _struct_q is None:
-        _struct_q = struct.Struct("<q")
-    return _struct_q
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i
